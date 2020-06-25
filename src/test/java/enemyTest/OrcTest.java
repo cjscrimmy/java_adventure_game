@@ -19,4 +19,10 @@ public class OrcTest {
         assertEquals(100, orc.getHp());
     }
 
+    @Test
+    public void canTakeDamage(){
+        orc.takeDamage(10);
+        assertEquals(90, orc.getHp());
+    }
+
 }
