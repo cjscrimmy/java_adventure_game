@@ -2,25 +2,26 @@ package weaponTests;
 
 import org.junit.Before;
 import org.junit.Test;
-import weapons.SlingShot;
+import weapons.Sword;
 
 import static org.junit.Assert.assertEquals;
 
-public class SlingShotTest {
-    private SlingShot slingShot;
+public class SwordTest {
+    private Sword sword;
 
     @Before
     public void before(){
-        slingShot = new SlingShot("yellow");
+        sword = new Sword("blue");
     }
 
     @Test
     public void canAttack(){
-        assertEquals(10, slingShot.attack());
+        assertEquals(20, sword.attack());
     }
 
     @Test
     public void hasColour(){
-        assertEquals("yellow", slingShot.getColour());
+        assertEquals("blue", sword.getColour());
     }
+
 }
