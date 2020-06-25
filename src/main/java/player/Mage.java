@@ -6,13 +6,23 @@ import enemy.Enemy;
 
 public abstract class Mage extends Player implements IDefend {
     private ISpell spell;
-    public Mage(String name, int hp, ISpell spell){
+    private IDefend defender;
+    public Mage(String name, int hp, ISpell spell, IDefend defender){
         super(name, hp);
         this.spell = spell;
+        this.defender = defender;
+    }
+
+    public void castSpell(Enemy enemy){
+        spell.cast(enemy);
     }
 
     public void defend(Enemy enemy){
-        spell.cast(enemy);
+        defender.defend(enemy);
+    }
+
+    public ISpell getSpell(){
+        return this.spell;
     }
 
 }
