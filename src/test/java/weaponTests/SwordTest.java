@@ -1,5 +1,6 @@
 package weaponTests;
 
+import enemy.Troll;
 import org.junit.Before;
 import org.junit.Test;
 import weapons.Sword;
@@ -15,8 +16,15 @@ public class SwordTest {
     }
 
     @Test
-    public void canAttack(){
-        assertEquals(20, sword.attack());
+    public void canAttack() {
+        Troll troll = new Troll(40);
+        sword.attack(troll);
+        assertEquals(20, troll.getHp());
+    }
+
+    @Test
+    public void hasDefaultDamage(){
+        assertEquals(20, sword.getDamage());
     }
 
     @Test

@@ -1,5 +1,6 @@
 package weaponTests;
 
+import enemy.Orc;
 import org.junit.Before;
 import org.junit.Test;
 import weapons.SlingShot;
@@ -15,8 +16,15 @@ public class SlingShotTest {
     }
 
     @Test
+    public void hasDefaultDamage(){
+        assertEquals(10, slingShot.getDamage());
+    }
+
+    @Test
     public void canAttack(){
-        assertEquals(10, slingShot.attack());
+        Orc orc = new Orc(20);
+        slingShot.attack(orc);
+        assertEquals(10, orc.getHp());
     }
 
     @Test

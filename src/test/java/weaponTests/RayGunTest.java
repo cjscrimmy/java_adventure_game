@@ -1,5 +1,6 @@
 package weaponTests;
 
+import enemy.Troll;
 import org.junit.Before;
 import org.junit.Test;
 import weapons.RayGun;
@@ -20,7 +21,14 @@ public class RayGunTest {
     }
 
     @Test
+    public void hasDefaultDamage(){
+        assertEquals(35, rayGun.getDamage());
+    }
+
+    @Test
     public void canAttack(){
-        assertEquals(35, rayGun.attack());
+        Troll troll = new Troll(100);
+        rayGun.attack(troll);
+        assertEquals(65, troll.getHp());
     }
 }
